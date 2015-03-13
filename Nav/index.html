@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style>
+   /*!
+ * jQuery Accordion 0.0.1
+ * (c) 2014 Victor Fernandez <victor@vctrfrnndz.com>
+ * MIT Licensed.
+ */
+
+/* Requirements */
+
+.data-accordion-group{
+    border: 1px solid #DDDDDD
+}
+
+.data-accordion .data-content {
+	display:none;
+    overflow: hidden;
+    text-align: left
+}
+
+.data-accordion {
+    line-height: 1;
+}
+
+.data-control,
+.data-content > * {
+    padding: 10px;
+    line-height: 18px
+}
+
+.data-content .data-accordion {
+    border: 0;
+    padding: 0;
+}
+
+.data-accordion .data-control {
+    position: relative;    
+    color: #1e7bc3;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #DDDDDD;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.data-accordion .data-control.acc-level1{
+    background: url('toggle2.png') no-repeat 10px 10px #F5F5F5;
+    padding-left: 35px;    
+}
+.data-accordion .data-content.acc-level2 .data-control {
+    background: url('toggle2.png') no-repeat 30px 10px #F5F5F5;
+    padding-left: 55px;
+}
+
+.data-accordion .data-content.acc-level2 {
+   display:none;
+    overflow: hidden; 
+    -webkit-transition: max-height 300ms ease; 
+    transition: max-height 300ms ease;
+}
+
+.data-accordion.open > .data-control:after {
+    -webkit-transform: rotate(-180deg); 
+    -ms-transform: rotate(-180deg); 
+    transform: rotate(-180deg); 
+    color: #555555
+}
+.data-accordion .acc-level3{
+    padding: 0px 20px 0px 45px;
+    overflow: hidden;
+}
+
+.data-accordion.open .acc-level1 {
+    background: url('toggle2.png') no-repeat 10px -30px #FEFBDB;
+    color: #555555
+}
+
+.data-accordion .acc-level2 .open .data-control {
+    background: url('toggle2.png') no-repeat 30px -30px #FEFBDB;
+    color: #555555
+}
+    </style>
+</head>
+
+<body>
+   <div id="multiple" class="data-accordion-group">
+
+    <div class="data-accordion acc-level0" >
+        <button class="data-control acc-level1" >
+            <span>ソフトバンクテレコム株式会社<span>
+						
+						</span></span>
+        </button>
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">汐留支店</button>
+                <div class="data-content acc-level3" >
+                    <div>東新橋1-9-1</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="data-accordion acc-level0" >
+        <button class="data-control acc-level1" >
+            <span>ユニー株式会社<span>
+						
+						</span></span>
+        </button>
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ千代田橋店</button>
+                <div class="data-content acc-level3" >
+                    <div>千種区千代田橋二丁目１番1号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ緑店</button>
+                <div class="data-content acc-level3" >
+                    <div>緑区徳重二丁目201番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ名古屋南店</button>
+                <div class="data-content acc-level3" >
+                    <div>南区豊田四丁目9番47号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ東海通店</button>
+                <div class="data-content acc-level3" >
+                    <div>港区港明一丁目10番28号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ名古屋北店</button>
+                <div class="data-content acc-level3" >
+                    <div>北区辻町九丁目1番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ新守山店</button>
+                <div class="data-content acc-level3" >
+                    <div>守山区新守山2830番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ鳴海店</button>
+                <div class="data-content acc-level3" >
+                    <div>緑区鳴海町字伝治山3番地9</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ平針店</button>
+                <div class="data-content acc-level3" >
+                    <div>天白区平針二丁目1201番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ植田店</button>
+                <div class="data-content acc-level3" >
+                    <div>天白区元植田一丁目302番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ中村店</button>
+                <div class="data-content acc-level3" >
+                    <div>中村区大門町27番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ西城店</button>
+                <div class="data-content acc-level3" >
+                    <div>守山区村合町175番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ清水山店</button>
+                <div class="data-content acc-level3" >
+                    <div>緑区有松町大字桶狭間字清水山13番第132番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ鹿山店</button>
+                <div class="data-content acc-level3" >
+                    <div>緑区鹿山一丁目48番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ味鋺店</button>
+                <div class="data-content acc-level3" >
+                    <div>北区楠三丁目606番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ蟹江店</button>
+                <div class="data-content acc-level3" >
+                    <div>蟹江町源氏3-230-1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ布袋店</button>
+                <div class="data-content acc-level3" >
+                    <div>布袋下山町西19</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ大治店</button>
+                <div class="data-content acc-level3" >
+                    <div>大治町大字花常字人見20</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">汐留支店</button>
+                <div class="data-content acc-level3" >
+                    <div>東新橋1-9-1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ千代田橋店</button>
+                <div class="data-content acc-level3" >
+                    <div>千種区千代田橋二丁目１番1号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ緑店</button>
+                <div class="data-content acc-level3" >
+                    <div>緑区徳重二丁目201番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ名古屋南店</button>
+                <div class="data-content acc-level3" >
+                    <div>南区豊田四丁目9番47号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ東海通店</button>
+                <div class="data-content acc-level3" >
+                    <div>港区港明一丁目10番28号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ名古屋北店</button>
+                <div class="data-content acc-level3" >
+                    <div>北区辻町九丁目1番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ新守山店</button>
+                <div class="data-content acc-level3" >
+                    <div>守山区新守山2830番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">アピタ鳴海店</button>
+                <div class="data-content acc-level3" >
+                    <div>緑区鳴海町字伝治山3番地9</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ平針店</button>
+                <div class="data-content acc-level3" >
+                    <div>天白区平針二丁目1201番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ植田店</button>
+                <div class="data-content acc-level3" >
+                    <div>天白区元植田一丁目302番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ中村店</button>
+                <div class="data-content acc-level3" >
+                    <div>中村区大門町27番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ西城店</button>
+                <div class="data-content acc-level3" >
+                    <div>守山区村合町175番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ清水山店</button>
+                <div class="data-content acc-level3" >
+                    <div>緑区有松町大字桶狭間字清水山13番第132番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ鹿山店</button>
+                <div class="data-content acc-level3" >
+                    <div>緑区鹿山一丁目48番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ味鋺店</button>
+                <div class="data-content acc-level3" >
+                    <div>北区楠三丁目606番地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ蟹江店</button>
+                <div class="data-content acc-level3" >
+                    <div>蟹江町源氏3-230-1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ布袋店</button>
+                <div class="data-content acc-level3" >
+                    <div>布袋下山町西19</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-content acc-level2">
+            <div class="data-accordion">
+                <button class="data-control">ピアゴ大治店</button>
+                <div class="data-content acc-level3" >
+                    <div>大治町大字花常字人見20</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function() {
+        	$('.acc-level1').click(function(){
+        		$(this).parents('.acc-level0').children('.acc-level2').toggle();
+        	});
+
+        	$('.acc-level2 button.data-control').click(function(){
+        		$(this).parents('.data-accordion').children('.acc-level3').toggle();
+        	});	
+
+            
+        });
+    </script>
+</body>
+
+</html>
